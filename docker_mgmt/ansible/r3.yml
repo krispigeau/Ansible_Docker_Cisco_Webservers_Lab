@@ -1,0 +1,45 @@
+---
+
+- name: Configure R1
+  hosts: R3
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+    - name: Set IP Addresses for GigabitEthernet3/0
+      ios_config:
+        lines:
+          - ip address 192.168.30.2 255.255.255.0
+          - no shut
+        parents: interface GigabitEthernet3/0
+
+    - name: Set IP Addresses for GigabitEthernet4/0
+      ios_config:
+        lines:
+          - ip address 192.168.56.2 255.255.255.0
+          - no shut
+        parents: interface GigabitEthernet4/0
+
+    - name: Configure OSPF
+      ios_config:
+        lines:
+          - router ospf 1
+          - network 192.168.30.2 0.0.0.0 area 0
+          - network 192.168.56.2 0.0.0.0 area 0
+
+    - name: Gather Facts
+      cisco.ios.ios_facts:
+        gather_subset: all
+        gather_network_resources: ospfv2
+
+    - name: Confirm IP Addresses and Networks in OSPF process
+      debug:
+        msg: 
+        - " IPs Assigned --> {{ ansible_net_all_ipv4_addresses }}"
+        - "Added into OSPF"
+        - "{{ ansible_network_resources }}"
+
+
+
+      

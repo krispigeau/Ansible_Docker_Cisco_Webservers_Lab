@@ -1,0 +1,11 @@
+[routers]
+R1 ansible_host=172.18.0.51
+R2 ansible_host=172.18.0.52
+R3 ansible_host=172.18.0.53
+
+[routers:vars]
+
+ansible_user=robot
+ansible_password=letmein123
+ansible_connection=network_cli
+ansible_network_os=ios

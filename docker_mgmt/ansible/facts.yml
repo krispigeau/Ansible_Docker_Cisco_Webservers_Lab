@@ -1,0 +1,14 @@
+---
+- name: Gather Facts
+  hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: Gather min facts
+    cisco.ios.ios_facts:
+      gather_subset: min
+
+  - debug:
+     msg: 
+     - "{{ ansible_facts }}"
