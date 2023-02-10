@@ -1,0 +1,32 @@
+- name: install web server packages
+  tags: apache,httpd,php
+  package:
+    name:
+      - "{{ apache_package_name }}"
+      - "{{ php_package_name }}"
+    state: latest
+
+- name: start and enable apache service
+  tags: apache,httpd
+  service:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: yes
+
+- name: Create firewall rule for apache service
+  ansible.posix.firewalld:
+    service: http
+    permanent: yes
+    immediate: yes
+    state: enabled
+  when: ansible_distribution == "CentOS"
+
+
+- name: copy html file for site
+  tags: apache,apache,apache2,httpd
+  copy:
+    src: default_site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
