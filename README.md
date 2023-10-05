@@ -213,7 +213,7 @@ ansible-playbook r3.yml
 
 ## Ansible running on workstation:
 
-~/sdn-lab-1
+~/Ansible_Docker_Cisco_Webservers_Lab
 
 In the ansible.cfg file I've configured some settings. I tell ansible where to find the inventory file. I also tell ansible where to find the private ssh key used to talk with webservers running in virtualbox.
 
@@ -231,7 +231,7 @@ There is a folder in the web\_servers role folder called templates. This folder 
 
 ## Ansible running in docker container:
 
-~/sdn-lab-1/docker\_mgmt
+~/Ansible_Docker_Cisco_Webservers_Lab/docker\_mgmt
 
 This folder has a Dockerfile which is used to build a container image. The Dockerfile uses ubuntu:22.04 as its base. It then runs commands used to install ansible as well as some networking tools.
 
