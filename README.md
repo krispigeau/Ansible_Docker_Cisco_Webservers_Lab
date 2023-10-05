@@ -23,7 +23,7 @@ _https://github.com/krispigeau/Ansible_Docker_Cisco_Webservers_Lab/blob/main/top
 
 git clone https://github.com/krispigeau/Ansible_Docker_Cisco_Webservers_Lab.git
 
-cd sdn-lab-1
+cd Ansible_Docker_Cisco_Webservers_Lab
 
 **Step 2 - Create Host-Only Networks in VirtualBox**
 
