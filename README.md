@@ -21,7 +21,7 @@ _https://github.com/krispigeau/Ansible_Docker_Cisco_Webservers_Lab/blob/main/top
 
 **Step 1 - Clone GitHub repo and cd into the cloned repo**
 
-git clone https://github.com/krispigeau/sdn-lab-1.git
+git clone https://github.com/krispigeau/Ansible_Docker_Cisco_Webservers_Lab.git
 
 cd sdn-lab-1
 
