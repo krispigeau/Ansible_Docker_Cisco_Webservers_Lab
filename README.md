@@ -15,7 +15,7 @@ This lab demonstrates the use of playbooks, roles, ansible.cfg files, inventory 
 
 ![](RackMultipart20231005-1-bwc04p_html_4a3e1678c0d288f2.png)
 
-_https://github.com/krispigeau/sdn-lab-1/blob/main/topology.png_
+_https://github.com/krispigeau/Ansible_Docker_Cisco_Webservers_Lab/blob/main/topology.png_
 
 # Lab Setup
 
