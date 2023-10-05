@@ -27,7 +27,7 @@ cd sdn-lab-1
 
 **Step 2 - Create Host-Only Networks in VirtualBox**
 
-# Create two host-only in virtual box
+#Create two host-only in virtual box
 
 Set Network Properties as:
 
@@ -49,7 +49,7 @@ DCHP: True
 
 **Step 3 - Create two virtual machines and attach to network vboxnet** 0
 
-# One will be Ubuntu Server and the other CentOS server
+#One will be Ubuntu Server and the other CentOS server
 
 - Ubuntu Server 1
 
@@ -73,11 +73,11 @@ Static IP Address: 192.168.56.201
 
 **Step 4 - Make sure both servers have a user with the same name as the user account on your workstation**
 
-# In my case my workstation and both servers have a user named kris
+ In my case my workstation and both servers have a user named kris
 
 **Step 5 - Create one VM and attach to network vboxnet1**
 
-# This should be an Ubuntu Desktop
+#This should be an Ubuntu Desktop
 
 - Ubuntu Desktop
 
@@ -89,19 +89,19 @@ Dynamic IP Address: assigned dynamically
 
 **Step 6 - Add static routes so webservers can reach Ubuntu Desktop after setup is complete**
 
-# Command for Ubuntu & CentOS Servers
+#Command for Ubuntu & CentOS Servers
 
 sudo route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.56.2
 
 **Step 7 - Add static routes so Ubuntu Desktop can reach webservers**
 
-# Command for Ubuntu Desktop VM
+#Command for Ubuntu Desktop VM
 
 sudo route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.57.1
 
 **Step 8 - Generate ssh key for ansible running on local computer to access Servers in Virtual Box**
 
-# name the key ansible
+#name the key ansible
 
 ssh-keygen -t ed25519 -C "ansible"
 
@@ -117,7 +117,7 @@ ansible all -m ping
 
 **Step 11 - Run ansible playbook to setup webservers**
 
-# Note while ssh no longer needs a password we still need to enter the password to become sudo
+#Note while ssh no longer needs a password we still need to enter the password to become sudo
 
 ansible-playbook --ask-become-pass virtualbox.yml
 
@@ -127,7 +127,7 @@ sudo docker network create mgmt
 
 **Step 13 - Create topology in GNS3**
 
-# Connect everything as per the topology image, see topoloy.png
+#Connect everything as per the topology image, see topoloy.png
 
 Components:
 
@@ -147,17 +147,17 @@ Router3: Cisco router
 
 **Step 14 - Initialize Routers**
 
-# Run the following commands on all three routers
+#Run the following commands on all three routers
 
-# Create user for Ansible
+#Create user for Ansible
 
 username robot privilege 15 secret letmein123
 
-# Enable SSH on all routers
+#Enable SSH on all routers
 
 ip domain-name kris.com
 
-# Enter module = 1024, after the following command
+#Enter module = 1024, after the following command
 
 crypto key generate rsa
 
@@ -209,7 +209,7 @@ ansible-playbook r3.yml
 
 [http://192.168.56.201](http://192.168.56.201/)
 
-# What does the code do?
+#What does the code do?
 
 ## Ansible running on workstation:
 
